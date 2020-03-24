@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 using FindMusic.Core.Models;
 
@@ -7,6 +6,6 @@ namespace FindMusic.Core.Interfaces
 {
     public interface IFindMusicService
     {
-        Task<IReadOnlyCollection<Album>> GetAlbumsByBandNameAsync(string bandName, CancellationToken token);
+        Task<FullArtistInfo> GetAlbumsByBandNameAsync(string artistName, CancellationToken token);
     }
 }

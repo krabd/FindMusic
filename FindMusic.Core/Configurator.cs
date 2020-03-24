@@ -11,6 +11,7 @@ namespace FindMusic.Core
         {
             services.AddTransient<IFindMusicService, FindMusicService>();
             services.AddTransient<IMusicRepository, AppleMusicRepository>();
+            services.AddTransient<ILocalMusicRepository, LocalMusicRepository>();
 
             return services;
         }

@@ -28,10 +28,10 @@ namespace FindMusic.Console
 
                 try
                 {
-                    var bandName = System.Console.ReadLine();
+                    var artistName = System.Console.ReadLine();
 
-                    var albums = await _findMusicService.GetAlbumsByBandNameAsync(bandName, token);
-                    foreach (var album in albums)
+                    var artistInfo = await _findMusicService.GetAlbumsByBandNameAsync(artistName, token);
+                    foreach (var album in artistInfo.Albums)
                     {
                         System.Console.WriteLine(album.Name);
                     }

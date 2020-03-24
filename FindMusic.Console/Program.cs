@@ -1,5 +1,9 @@
 ﻿using System.Threading.Tasks;
+using FindMusic.Entity;
 using FindMusic.Utils.Extensions;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FindMusic.Console
 {
@@ -12,8 +16,17 @@ namespace FindMusic.Console
             System.Console.WriteLine("Welcome to the FindMusic!");
 
             var startupService = new StartupService();
-            var serviceCollection = startupService.Configure();
-            var provider = startupService.BuildProvider(serviceCollection);
+            var configuration = startupService.ConfigureSettings();
+
+            var services = startupService.Configure();
+
+            services.AddDbContext<FindMusicContext>((serviceProvider, options) =>
+            {
+                var connectionString = configuration.GetConnectionString("Storage");
+                options.UseSqlite(connectionString);
+            });
+
+            var provider = startupService.BuildProvider(services);
 
             _findMusic = provider.Resolve<FindMusic>();
 
