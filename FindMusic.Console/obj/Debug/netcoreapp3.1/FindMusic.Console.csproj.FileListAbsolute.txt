@@ -16,3 +16,4 @@ D:\Projects\FindMusic\FindMusic\FindMusic.Console\bin\Debug\netcoreapp3.1\FindMu
 D:\Projects\FindMusic\FindMusic\FindMusic.Console\obj\Debug\netcoreapp3.1\FindMusic.Console.csproj.CopyComplete
 D:\Projects\FindMusic\FindMusic\FindMusic.Console\obj\Debug\netcoreapp3.1\FindMusic.Console.dll
 D:\Projects\FindMusic\FindMusic\FindMusic.Console\obj\Debug\netcoreapp3.1\FindMusic.Console.pdb
+D:\Projects\FindMusic\FindMusic\FindMusic.Console\bin\Debug\netcoreapp3.1\RestSharp.dll

@@ -34,9 +34,18 @@
           }
         }
       },
+      "RestSharp/106.10.2-alpha.0.8": {
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {
+            "assemblyVersion": "106.0.0.0",
+            "fileVersion": "106.10.2.0"
+          }
+        }
+      },
       "FindMusic.Core/1.0.0": {
         "dependencies": {
-          "FindMusic.Utils": "1.0.0"
+          "FindMusic.Utils": "1.0.0",
+          "RestSharp": "106.10.2-alpha.0.8"
         },
         "runtime": {
           "FindMusic.Core.dll": {}
@@ -71,6 +80,13 @@
       "sha512": "sha512-nR8JGs9F4uKUJHA3rXZYVpU4kzQ7G38h3rYq7KgPr3vEWGuCFBL88ZMQMRNRXnBi5kogs9ZQtXZ6D8lo+ccv7A==",
       "path": "microsoft.extensions.dependencyinjection.abstractions/5.0.0-preview.1.20120.4",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.5.0.0-preview.1.20120.4.nupkg.sha512"
+    },
+    "RestSharp/106.10.2-alpha.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Z1g/d7L4LNq5if6WBOPHZKPd2OHFfi1kNW/pVBXRMfwHLQZajKmDsf7H3wZZhKoFwRzRywzRS4cbo8jKlW8PiA==",
+      "path": "restsharp/106.10.2-alpha.0.8",
+      "hashPath": "restsharp.106.10.2-alpha.0.8.nupkg.sha512"
     },
     "FindMusic.Core/1.0.0": {
       "type": "project",

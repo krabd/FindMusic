@@ -1,9 +1,12 @@
-﻿using FindMusic.Utils.Extensions;
+﻿using System.Threading.Tasks;
+using FindMusic.Utils.Extensions;
 
 namespace FindMusic.Console
 {
     class Program
     {
+        private static FindMusic _findMusic;
+
         static void Main(string[] args)
         {
             System.Console.WriteLine("Welcome to the FindMusic!");
@@ -12,10 +15,14 @@ namespace FindMusic.Console
             var serviceCollection = startupService.Configure();
             var provider = startupService.BuildProvider(serviceCollection);
 
-            var findMusic = provider.Resolve<FindMusic>();
-            findMusic.Run();
+            _findMusic = provider.Resolve<FindMusic>();
 
-            System.Console.ReadLine();
+            MainAsync(args).GetAwaiter().GetResult();
+        }
+
+        static async Task MainAsync(string[] args)
+        {
+            await _findMusic.Run();
         }
     }
 }

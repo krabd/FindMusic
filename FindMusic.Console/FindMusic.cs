@@ -8,6 +8,7 @@ namespace FindMusic.Console
 {
     public class FindMusic
     {
+        private readonly CancellationTokenSource _mainCts = new CancellationTokenSource();
         private readonly IFindMusicService _findMusicService;
 
         private CancellationTokenSource _cts;
@@ -19,7 +20,7 @@ namespace FindMusic.Console
 
         public async Task Run()
         {
-            while (true)
+            while (!_mainCts.IsCancellationRequested)
             {
                 _cts?.Cancel();
                 _cts = new CancellationTokenSource();
@@ -29,13 +30,22 @@ namespace FindMusic.Console
                 {
                     var bandName = System.Console.ReadLine();
 
-                    await _findMusicService.GetAlbumsByBandNameAsync(bandName, token);
+                    var albums = await _findMusicService.GetAlbumsByBandNameAsync(bandName, token);
+                    foreach (var album in albums)
+                    {
+                        System.Console.WriteLine(album.Name);
+                    }
                 }
                 catch (Exception e) when(!token.IsCancellationRequested)
                 {
                     Debug.WriteLine(e);
                 }
             }
+        }
+
+        public void Stop()
+        {
+            _mainCts.Cancel();
         }
     }
 }

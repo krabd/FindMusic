@@ -17,11 +17,11 @@ namespace FindMusic.Core.Repositories
                 using (var client = new HttpClient())
                 {
                     client.Timeout = TimeSpan.FromSeconds(10);
+                    client.BaseAddress = new Uri("https://api.music.apple.com/");
+
+                    //var response = await client.GetAsync("v1/catalog/", token);
                     
-                    var response = await client.GetAsync("https://api.music.apple.com/v1/catalog/", token);
-                    var result = await response.Content.ReadAsStringAsync();
-                    
-                    return null;
+                    return new List<Album> {new Album {Name = "1"}, new Album {Name = "2"}};
                 }
             }, token);
         }
