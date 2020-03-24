@@ -110,6 +110,12 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "RestSharp": {
+              "target": "Package",
+              "version": "[106.10.2-alpha.0.8, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

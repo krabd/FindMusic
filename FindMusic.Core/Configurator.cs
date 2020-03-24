@@ -10,7 +10,7 @@ namespace FindMusic.Core
         public static IServiceCollection ConfigureCore(this IServiceCollection services)
         {
             services.AddTransient<IFindMusicService, FindMusicService>();
-            services.AddTransient<IMusicRepository, ITunesMusicRepository>();
+            services.AddTransient<IMusicRepository, AppleMusicRepository>();
 
             return services;
         }

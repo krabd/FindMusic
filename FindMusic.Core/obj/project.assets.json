@@ -23,6 +23,15 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
+      "RestSharp/106.10.2-alpha.0.8": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        }
+      },
       "FindMusic.Utils/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -73,6 +82,21 @@
         "microsoft.extensions.dependencyinjection.abstractions.nuspec"
       ]
     },
+    "RestSharp/106.10.2-alpha.0.8": {
+      "sha512": "Z1g/d7L4LNq5if6WBOPHZKPd2OHFfi1kNW/pVBXRMfwHLQZajKmDsf7H3wZZhKoFwRzRywzRS4cbo8jKlW8PiA==",
+      "type": "package",
+      "path": "restsharp/106.10.2-alpha.0.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net452/RestSharp.dll",
+        "lib/net452/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.106.10.2-alpha.0.8.nupkg.sha512",
+        "restsharp.nuspec"
+      ]
+    },
     "FindMusic.Utils/1.0.0": {
       "type": "project",
       "path": "../FindMusic.Utils/FindMusic.Utils.csproj",
@@ -81,7 +105,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "FindMusic.Utils >= 1.0.0"
+      "FindMusic.Utils >= 1.0.0",
+      "RestSharp >= 106.10.2-alpha.0.8"
     ]
   },
   "packageFolders": {
@@ -130,6 +155,12 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "dependencies": {
+          "RestSharp": {
+            "target": "Package",
+            "version": "[106.10.2-alpha.0.8, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
