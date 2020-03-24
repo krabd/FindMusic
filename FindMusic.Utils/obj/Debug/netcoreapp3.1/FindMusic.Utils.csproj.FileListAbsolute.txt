@@ -1,8 +1,0 @@
-D:\Projects\FindMusic\FindMusic\FindMusic.Utils\bin\Debug\netcoreapp3.1\FindMusic.Utils.deps.json
-D:\Projects\FindMusic\FindMusic\FindMusic.Utils\bin\Debug\netcoreapp3.1\FindMusic.Utils.dll
-D:\Projects\FindMusic\FindMusic\FindMusic.Utils\bin\Debug\netcoreapp3.1\FindMusic.Utils.pdb
-D:\Projects\FindMusic\FindMusic\FindMusic.Utils\obj\Debug\netcoreapp3.1\FindMusic.Utils.csprojAssemblyReference.cache
-D:\Projects\FindMusic\FindMusic\FindMusic.Utils\obj\Debug\netcoreapp3.1\FindMusic.Utils.AssemblyInfoInputs.cache
-D:\Projects\FindMusic\FindMusic\FindMusic.Utils\obj\Debug\netcoreapp3.1\FindMusic.Utils.AssemblyInfo.cs
-D:\Projects\FindMusic\FindMusic\FindMusic.Utils\obj\Debug\netcoreapp3.1\FindMusic.Utils.dll
-D:\Projects\FindMusic\FindMusic\FindMusic.Utils\obj\Debug\netcoreapp3.1\FindMusic.Utils.pdb
