@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMusic.Core", "FindMusic.Core\FindMusic.Core.csproj", "{4DC582EC-4379-4A6D-9739-9E636CFFACD0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindMusic.Utils", "FindMusic.Utils\FindMusic.Utils.csproj", "{C62E21FF-77DC-498E-8DB4-8E2AC0BC4E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMusic.Console", "FindMusic.Console\FindMusic.Console.csproj", "{C2D2D983-310C-4CC1-B1D5-71D4BCD8E92D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DC582EC-4379-4A6D-9739-9E636CFFACD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC582EC-4379-4A6D-9739-9E636CFFACD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC582EC-4379-4A6D-9739-9E636CFFACD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC582EC-4379-4A6D-9739-9E636CFFACD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C62E21FF-77DC-498E-8DB4-8E2AC0BC4E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C62E21FF-77DC-498E-8DB4-8E2AC0BC4E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C62E21FF-77DC-498E-8DB4-8E2AC0BC4E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C62E21FF-77DC-498E-8DB4-8E2AC0BC4E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D2D983-310C-4CC1-B1D5-71D4BCD8E92D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D2D983-310C-4CC1-B1D5-71D4BCD8E92D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D2D983-310C-4CC1-B1D5-71D4BCD8E92D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D2D983-310C-4CC1-B1D5-71D4BCD8E92D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37827ABE-FB3A-4778-A7CC-88CA05DED669}
+	EndGlobalSection
+EndGlobal
