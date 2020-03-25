@@ -2,7 +2,7 @@
 using System.IO;
 using FindMusic.Core;
 using FindMusic.DataAccess;
-using FindMusic.Entity.Helpers;
+using FindMusic.Entity;
 using FindMusic.WPF.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +26,7 @@ namespace FindMusic.WPF
 
             services.AddTransient<FindMusicViewModel>();
 
-            services.AddSingleton<IDbContextFactory, DbContextFactory>();
+            services.ConfigureEntity();
             services.ConfigureCore();
             services.ConfigureDataAccess();
 

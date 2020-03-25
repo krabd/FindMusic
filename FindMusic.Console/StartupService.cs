@@ -2,7 +2,7 @@
 using System.IO;
 using FindMusic.Core;
 using FindMusic.DataAccess;
-using FindMusic.Entity.Helpers;
+using FindMusic.Entity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -25,7 +25,7 @@ namespace FindMusic.Console
 
             services.AddTransient<FindMusic>();
 
-            services.AddSingleton<IDbContextFactory, DbContextFactory>();
+            services.ConfigureEntity();
             services.ConfigureCore();
             services.ConfigureDataAccess();
 
