@@ -19,23 +19,25 @@ namespace FindMusic.Core.Services
 
         public async Task<FullArtistInfo> GetAlbumsByBandNameAsync(string artistName, CancellationToken token)
         {
-            var albumsResult = await _musicRepository.GetAlbumsByBandNameAsync(artistName, token);
+            var albumsResultTask = _musicRepository.GetAlbumsByBandNameAsync(artistName, token);
+            var localArtistInfoExistTask = _localMusicRepository.IsArtistExistAsync(artistName, token);
+            await Task.WhenAll(albumsResultTask, localArtistInfoExistTask);
+
+            var albumsResult = albumsResultTask.Result;
+            var localArtistInfoExist = localArtistInfoExistTask.Result;
 
             switch (albumsResult.Value)
             {
                 case Status.Ok:
 
-                    var localArtistInfoExist = await _localMusicRepository.IsArtistExistAsync(artistName, token);
-
-                    if (localArtistInfoExist)
+                    if (!localArtistInfoExist)
                         await _localMusicRepository.AddArtistInfoAsync(albumsResult.Model, token);
 
                     return albumsResult.Model;
 
                 case Status.Fail:
 
-                    var localArtistInfo = await _localMusicRepository.GetArtistInfoByNameAsync(artistName, token);
-                    return localArtistInfo;
+                    return localArtistInfoExist ? await _localMusicRepository.GetArtistInfoByNameAsync(artistName, token) : null;
             }
 
             return null;

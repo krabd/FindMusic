@@ -31,9 +31,16 @@ namespace FindMusic.Console
                     var artistName = System.Console.ReadLine();
 
                     var artistInfo = await _findMusicService.GetAlbumsByBandNameAsync(artistName, token);
-                    foreach (var album in artistInfo.Albums)
+                    if (artistInfo == null)
                     {
-                        System.Console.WriteLine(album.Name);
+                        System.Console.WriteLine("Artist not found");
+                    }
+                    else
+                    {
+                        foreach (var album in artistInfo.Albums)
+                        {
+                            System.Console.WriteLine(album.Name);
+                        }
                     }
                 }
                 catch (Exception e) when(!token.IsCancellationRequested)
