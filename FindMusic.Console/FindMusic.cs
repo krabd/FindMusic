@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using FindMusic.Core.Interfaces;
+using FindMusic.Utils.Helpers;
 
 namespace FindMusic.Console
 {
@@ -31,13 +32,13 @@ namespace FindMusic.Console
                     var artistName = System.Console.ReadLine();
 
                     var artistInfo = await _findMusicService.GetAlbumsByArtistNameAsync(artistName, token);
-                    if (artistInfo == null)
+                    if (artistInfo.Value == Status.Fail)
                     {
-                        System.Console.WriteLine("Artist not found");
+                        System.Console.WriteLine($"Error: {artistInfo.Message}");
                     }
                     else
                     {
-                        foreach (var album in artistInfo.Albums)
+                        foreach (var album in artistInfo.Model.Albums)
                         {
                             System.Console.WriteLine(album.Name);
                         }

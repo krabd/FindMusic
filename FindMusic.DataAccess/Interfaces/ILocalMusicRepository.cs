@@ -1,15 +1,16 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using FindMusic.DataAccess.Models;
+using FindMusic.Utils.Helpers;
 
 namespace FindMusic.DataAccess.Interfaces
 {
     public interface ILocalMusicRepository
     {
-        Task<bool> IsArtistExistAsync(string artistName, CancellationToken token);
+        Task<Result<Status, bool>> IsArtistExistAsync(string artistName, CancellationToken token);
 
-        Task AddArtistInfoAsync(FullArtistInfo artistInfo, CancellationToken token);
+        Task<Status> AddArtistInfoAsync(FullArtistInfo artistInfo, CancellationToken token);
 
-        Task<FullArtistInfo> GetArtistInfoByNameAsync(string artistName, CancellationToken token);
+        Task<Result<Status, FullArtistInfo>> GetArtistInfoByNameAsync(string artistName, CancellationToken token);
     }
 }

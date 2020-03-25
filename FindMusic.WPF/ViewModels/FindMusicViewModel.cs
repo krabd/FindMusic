@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows.Input;
 using FindMusic.Core.Interfaces;
+using FindMusic.Utils.Helpers;
 using FindMusic.WPF.Helpers;
 using Prism.Commands;
 
@@ -46,15 +47,15 @@ namespace FindMusic.WPF.ViewModels
                 var artistName = ArtistName;
 
                 var artistInfo = await _findMusicService.GetAlbumsByArtistNameAsync(artistName, token);
-                if (artistInfo == null)
+                if (artistInfo.Value == Status.Fail)
                 {
-                    Tools.DispatchedInvoke(() => Albums.Add("Artist not found"));
+                    Tools.DispatchedInvoke(() => Albums.Add($"Error: {artistInfo.Message}"));
                 }
                 else
                 {
                     Tools.DispatchedInvoke(() =>
                         {
-                            foreach (var album in artistInfo.Albums)
+                            foreach (var album in artistInfo.Model.Albums)
                             {
                                 Albums.Add(album.Name);
                             }

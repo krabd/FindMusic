@@ -11,7 +11,7 @@ namespace FindMusic.DataAccess.Repositories
 {
     public class AppleMusicRepository : IMusicRepository
     {
-        public Task<Result<Status, FullArtistInfo>> GetAlbumsByBandNameAsync(string artistName, CancellationToken token)
+        public Task<Result<Status, FullArtistInfo>> GetAlbumsByArtistNameAsync(string artistName, CancellationToken token)
         {
             return Task.Run(async () =>
             {
@@ -19,10 +19,13 @@ namespace FindMusic.DataAccess.Repositories
                 {
                     try
                     {
-                        client.Timeout = TimeSpan.FromSeconds(10);
-                        client.BaseAddress = new Uri("https://api.music.apple.com/");
-
-                        //var response = await client.GetAsync("v1/catalog/", token);
+                        //TODO: Apple Music все-таки требует авторизации, для которой нужен аккаунт разработчика, поэтому сделал заглушку,
+                        //TODO: Судя по API https://developer.apple.com/documentation/applemusicapi/search_for_catalog_resources, это обычный GET запрос
+                        //TODO: с ответом в JSON, написал приблизительный код, как это было бы
+                        //var uriBuilder = new UriBuilder("https://api.music.apple.com/v1/catalog/") {Query = $"term='{artistName.Replace(' ', '+')}'&types='albums'"};
+                        //var response = await client.GetAsync(uriBuilder.Uri, token);
+                        //var result = await response.Content.ReadAsStringAsync();
+                        //var albumsInfo = JsonConvert.DeserializeObject<AlbumsResponse>(result);
 
                         var artist = new Artist { ProviderId = 1, Name = artistName };
                         var albums = new List<Album>

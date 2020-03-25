@@ -18,9 +18,9 @@ namespace FindMusic.Core.Services
             _localMusicRepository = localMusicRepository;
         }
 
-        public async Task<FullArtistInfo> GetAlbumsByArtistNameAsync(string artistName, CancellationToken token)
+        public async Task<Result<Status, FullArtistInfo>> GetAlbumsByArtistNameAsync(string artistName, CancellationToken token)
         {
-            var albumsResultTask = _musicRepository.GetAlbumsByBandNameAsync(artistName, token);
+            var albumsResultTask = _musicRepository.GetAlbumsByArtistNameAsync(artistName, token);
             var localArtistInfoExistTask = _localMusicRepository.IsArtistExistAsync(artistName, token);
             await Task.WhenAll(albumsResultTask, localArtistInfoExistTask);
 
@@ -31,17 +31,20 @@ namespace FindMusic.Core.Services
             {
                 case Status.Ok:
 
-                    if (!localArtistInfoExist)
+                    if (localArtistInfoExist.Value == Status.Ok && !localArtistInfoExist.Model)
                         await _localMusicRepository.AddArtistInfoAsync(albumsResult.Model, token);
 
-                    return albumsResult.Model;
+                    return new Result<Status, FullArtistInfo>(Status.Ok, albumsResult.Model);
 
                 case Status.Fail:
 
-                    return localArtistInfoExist ? await _localMusicRepository.GetArtistInfoByNameAsync(artistName, token) : null;
+                    if (localArtistInfoExist.Value == Status.Ok && localArtistInfoExist.Model)
+                        return await _localMusicRepository.GetArtistInfoByNameAsync(artistName, token);
+                    
+                    break;
             }
 
-            return null;
+            return new Result<Status, FullArtistInfo>(Status.Fail);
         }
     }
 }

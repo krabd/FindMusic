@@ -2,7 +2,7 @@
 
 namespace FindMusic.Utils.Helpers
 {
-    public struct Result<TResult, TModel> where TResult : Enum where TModel : class
+    public struct Result<TResult, TModel> where TResult : Enum
     {
         public TResult Value { get; }
 
@@ -10,7 +10,7 @@ namespace FindMusic.Utils.Helpers
 
         public string Message { get; }
 
-        public Result(TResult value, TModel model = null, string message = "")
+        public Result(TResult value, TModel model = default, string message = "")
         {
             Value = value;
             Message = message;

@@ -7,6 +7,6 @@ namespace FindMusic.DataAccess.Interfaces
 {
     public interface IMusicRepository
     {
-        Task<Result<Status, FullArtistInfo>> GetAlbumsByBandNameAsync(string bandName, CancellationToken token);
+        Task<Result<Status, FullArtistInfo>> GetAlbumsByArtistNameAsync(string bandName, CancellationToken token);
     }
 }
