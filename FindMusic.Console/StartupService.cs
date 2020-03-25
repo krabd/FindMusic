@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using FindMusic.Core;
+using FindMusic.DataAccess;
 using FindMusic.Entity.Helpers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,6 +27,7 @@ namespace FindMusic.Console
 
             services.AddSingleton<IDbContextFactory, DbContextFactory>();
             services.ConfigureCore();
+            services.ConfigureDataAccess();
 
             return services;
         }

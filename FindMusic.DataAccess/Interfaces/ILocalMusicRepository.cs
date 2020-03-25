@@ -1,8 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using FindMusic.Core.Models;
+using FindMusic.DataAccess.Models;
 
-namespace FindMusic.Core.Interfaces
+namespace FindMusic.DataAccess.Interfaces
 {
     public interface ILocalMusicRepository
     {

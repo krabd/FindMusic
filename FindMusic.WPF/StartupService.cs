@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using FindMusic.Core;
+using FindMusic.DataAccess;
 using FindMusic.Entity.Helpers;
 using FindMusic.WPF.ViewModels;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,7 @@ namespace FindMusic.WPF
 
             services.AddSingleton<IDbContextFactory, DbContextFactory>();
             services.ConfigureCore();
+            services.ConfigureDataAccess();
 
             return services;
         }

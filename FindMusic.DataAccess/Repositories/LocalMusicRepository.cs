@@ -1,13 +1,13 @@
 ﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using FindMusic.Core.Interfaces;
-using FindMusic.Core.Models;
+using FindMusic.DataAccess.Interfaces;
+using FindMusic.DataAccess.Models;
 using FindMusic.Entity.Helpers;
 using FindMusic.Entity.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FindMusic.Core.Repositories
+namespace FindMusic.DataAccess.Repositories
 {
     public class LocalMusicRepository : ILocalMusicRepository
     {

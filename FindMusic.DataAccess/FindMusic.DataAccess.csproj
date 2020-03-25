@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FindMusic.DataAccess\FindMusic.DataAccess.csproj" />
+    <ProjectReference Include="..\FindMusic.Entity\FindMusic.Entity.csproj" />
     <ProjectReference Include="..\FindMusic.Utils\FindMusic.Utils.csproj" />
   </ItemGroup>
 

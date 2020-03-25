@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FindMusic.Core.Helpers
+namespace FindMusic.Utils.Helpers
 {
     public struct Result<TResult, TModel> where TResult : Enum where TModel : class
     {

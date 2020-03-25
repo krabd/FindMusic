@@ -1,6 +1,6 @@
-﻿namespace FindMusic.Core.Models
+﻿namespace FindMusic.DataAccess.Models
 {
-    public class Artist
+    public class Album
     {
         public long ProviderId { get; set; }
 

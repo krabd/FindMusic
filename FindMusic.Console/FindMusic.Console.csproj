@@ -19,8 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FindMusic.Core\FindMusic.Core.csproj" />
-    <ProjectReference Include="..\FindMusic.Entity\FindMusic.Entity.csproj" />
-    <ProjectReference Include="..\FindMusic.Utils\FindMusic.Utils.csproj" />
   </ItemGroup>
 
   <ItemGroup>

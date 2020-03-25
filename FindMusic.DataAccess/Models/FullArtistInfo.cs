@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FindMusic.Core.Models
+namespace FindMusic.DataAccess.Models
 {
     public class FullArtistInfo
     {

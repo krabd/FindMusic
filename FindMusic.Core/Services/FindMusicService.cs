@@ -1,8 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using FindMusic.Core.Helpers;
 using FindMusic.Core.Interfaces;
-using FindMusic.Core.Models;
+using FindMusic.DataAccess.Interfaces;
+using FindMusic.DataAccess.Models;
+using FindMusic.Utils.Helpers;
 
 namespace FindMusic.Core.Services
 {
