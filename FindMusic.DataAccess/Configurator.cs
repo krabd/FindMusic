@@ -9,7 +9,7 @@ namespace FindMusic.DataAccess
         public static IServiceCollection ConfigureDataAccess(this IServiceCollection services)
         {
             services.AddTransient<IMusicRepository, AppleMusicRepository>();
-            services.AddTransient<ILocalMusicRepository, LocalMusicRepository>();
+            services.AddTransient<ICacheMusicRepository, CacheMusicRepository>();
 
             return services;
         }

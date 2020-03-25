@@ -11,11 +11,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FindMusic.DataAccess.Repositories
 {
-    public class LocalMusicRepository : ILocalMusicRepository
+    public class CacheMusicRepository : ICacheMusicRepository
     {
         private readonly IDbContextFactory _dbContextFactory;
 
-        public LocalMusicRepository(IDbContextFactory dbContextFactory)
+        public CacheMusicRepository(IDbContextFactory dbContextFactory)
         {
             _dbContextFactory = dbContextFactory;
         }

@@ -10,18 +10,18 @@ namespace FindMusic.Core.Services
     public class FindMusicService : IFindMusicService
     {
         private readonly IMusicRepository _musicRepository;
-        private readonly ILocalMusicRepository _localMusicRepository;
+        private readonly ICacheMusicRepository _cacheMusicRepository;
 
-        public FindMusicService(IMusicRepository musicRepository, ILocalMusicRepository localMusicRepository)
+        public FindMusicService(IMusicRepository musicRepository, ICacheMusicRepository cacheMusicRepository)
         {
             _musicRepository = musicRepository;
-            _localMusicRepository = localMusicRepository;
+            _cacheMusicRepository = cacheMusicRepository;
         }
 
         public async Task<Result<Status, FullArtistInfo>> GetAlbumsByArtistNameAsync(string artistName, CancellationToken token)
         {
             var albumsResultTask = _musicRepository.GetAlbumsByArtistNameAsync(artistName, token);
-            var localArtistInfoExistTask = _localMusicRepository.IsArtistExistAsync(artistName, token);
+            var localArtistInfoExistTask = _cacheMusicRepository.IsArtistExistAsync(artistName, token);
             await Task.WhenAll(albumsResultTask, localArtistInfoExistTask);
 
             var albumsResult = albumsResultTask.Result;
@@ -32,14 +32,14 @@ namespace FindMusic.Core.Services
                 case Status.Ok:
 
                     if (localArtistInfoExist.Value == Status.Ok && !localArtistInfoExist.Model)
-                        await _localMusicRepository.AddArtistInfoAsync(albumsResult.Model, token);
+                        await _cacheMusicRepository.AddArtistInfoAsync(albumsResult.Model, token);
 
                     return new Result<Status, FullArtistInfo>(Status.Ok, albumsResult.Model);
 
                 case Status.Fail:
 
                     if (localArtistInfoExist.Value == Status.Ok && localArtistInfoExist.Model)
-                        return await _localMusicRepository.GetArtistInfoByNameAsync(artistName, token);
+                        return await _cacheMusicRepository.GetArtistInfoByNameAsync(artistName, token);
                     
                     break;
             }

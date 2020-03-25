@@ -5,7 +5,7 @@ using FindMusic.Utils.Helpers;
 
 namespace FindMusic.DataAccess.Interfaces
 {
-    public interface ILocalMusicRepository
+    public interface ICacheMusicRepository
     {
         Task<Result<Status, bool>> IsArtistExistAsync(string artistName, CancellationToken token);
 
