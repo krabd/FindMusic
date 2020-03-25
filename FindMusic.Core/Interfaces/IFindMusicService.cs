@@ -6,6 +6,6 @@ namespace FindMusic.Core.Interfaces
 {
     public interface IFindMusicService
     {
-        Task<FullArtistInfo> GetAlbumsByBandNameAsync(string artistName, CancellationToken token);
+        Task<FullArtistInfo> GetAlbumsByArtistNameAsync(string artistName, CancellationToken token);
     }
 }

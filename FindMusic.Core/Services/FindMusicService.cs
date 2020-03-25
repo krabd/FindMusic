@@ -18,7 +18,7 @@ namespace FindMusic.Core.Services
             _localMusicRepository = localMusicRepository;
         }
 
-        public async Task<FullArtistInfo> GetAlbumsByBandNameAsync(string artistName, CancellationToken token)
+        public async Task<FullArtistInfo> GetAlbumsByArtistNameAsync(string artistName, CancellationToken token)
         {
             var albumsResultTask = _musicRepository.GetAlbumsByBandNameAsync(artistName, token);
             var localArtistInfoExistTask = _localMusicRepository.IsArtistExistAsync(artistName, token);

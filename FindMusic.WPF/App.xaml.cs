@@ -16,9 +16,8 @@ namespace FindMusic.WPF
         protected override void OnStartup(StartupEventArgs e)
         {
             var startupService = new StartupService();
-            var configuration = startupService.ConfigureSettings();
-
             var services = startupService.Configure();
+            var configuration = startupService.ConfigureSettings();
 
             services.AddDbContext<FindMusicContext>((serviceProvider, options) =>
             {

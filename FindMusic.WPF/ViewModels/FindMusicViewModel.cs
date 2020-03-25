@@ -39,23 +39,27 @@ namespace FindMusic.WPF.ViewModels
             _cts = new CancellationTokenSource();
             var token = _cts.Token;
 
-            Albums.Clear();
+            Tools.DispatchedInvoke(() => Albums.Clear());
 
             try
             {
                 var artistName = ArtistName;
 
-                var artistInfo = await _findMusicService.GetAlbumsByBandNameAsync(artistName, token);
+                var artistInfo = await _findMusicService.GetAlbumsByArtistNameAsync(artistName, token);
                 if (artistInfo == null)
                 {
-                    Albums.Add("Artist not found");
+                    Tools.DispatchedInvoke(() => Albums.Add("Artist not found"));
                 }
                 else
                 {
-                    foreach (var album in artistInfo.Albums)
-                    {
-                        Albums.Add(album.Name);
-                    }
+                    Tools.DispatchedInvoke(() =>
+                        {
+                            foreach (var album in artistInfo.Albums)
+                            {
+                                Albums.Add(album.Name);
+                            }
+                        }
+                    );
                 }
             }
             catch (Exception e) when (!token.IsCancellationRequested)

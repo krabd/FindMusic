@@ -16,9 +16,8 @@ namespace FindMusic.Console
             System.Console.WriteLine("Welcome to the FindMusic!");
 
             var startupService = new StartupService();
-            var configuration = startupService.ConfigureSettings();
-
             var services = startupService.Configure();
+            var configuration = startupService.ConfigureSettings();
 
             services.AddDbContext<FindMusicContext>((serviceProvider, options) =>
             {

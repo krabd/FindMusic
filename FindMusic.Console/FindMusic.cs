@@ -30,7 +30,7 @@ namespace FindMusic.Console
                 {
                     var artistName = System.Console.ReadLine();
 
-                    var artistInfo = await _findMusicService.GetAlbumsByBandNameAsync(artistName, token);
+                    var artistInfo = await _findMusicService.GetAlbumsByArtistNameAsync(artistName, token);
                     if (artistInfo == null)
                     {
                         System.Console.WriteLine("Artist not found");
