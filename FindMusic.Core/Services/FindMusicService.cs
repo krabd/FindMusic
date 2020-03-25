@@ -7,6 +7,8 @@ using FindMusic.Utils.Helpers;
 
 namespace FindMusic.Core.Services
 {
+    //TODO: На уровне всего проекта принимается за данность, что имена у всех исполнителей уникальные.
+    //TODO: Это допущение необходимо, так как не понятно как идентифицировать исполнителя в локальном кеше, если я не получаю ответа от провайдера музыки.
     public class FindMusicService : IFindMusicService
     {
         private readonly IMusicRepository _musicRepository;

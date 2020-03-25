@@ -86,8 +86,7 @@ namespace FindMusic.DataAccess.Repositories
                 {
                     var artist = await context.Artists
                         .AsNoTracking()
-
-                        .FirstAsync(i => i.Name == artistName, token);
+                        .SingleAsync(i => i.Name == artistName, token);
 
                     var albums = await context.Albums
                         .AsNoTracking()
