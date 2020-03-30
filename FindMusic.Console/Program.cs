@@ -11,7 +11,7 @@ namespace FindMusic.Console
     {
         private static FindMusic _findMusic;
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             System.Console.WriteLine("Welcome to the FindMusic!");
 
@@ -29,11 +29,6 @@ namespace FindMusic.Console
 
             _findMusic = provider.Resolve<FindMusic>();
 
-            MainAsync(args).GetAwaiter().GetResult();
-        }
-
-        static async Task MainAsync(string[] args)
-        {
             await _findMusic.Run();
         }
     }
